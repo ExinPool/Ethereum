@@ -1,0 +1,4 @@
+SERVICE=Ethereum
+API_KEY=
+LOG_FILE=ethereum_snapshots.log
+LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
