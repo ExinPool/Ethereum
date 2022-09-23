@@ -28,7 +28,9 @@ for node in "${nodes[@]}"
 do
     file="$dir/snaptshots-$curdate.log"
     balanceBig=`curl --silent -X 'GET' 'https://beaconcha.in/api/v1/validator/$node?apikey=$api_key' -H 'accept: application/json' | jq '.data.balance'`
+    echo $balanceBig
     balance=`echo "scale=9; $balanceBig/1000000000" | bc`
+    echo $balance
     echo "$node $balance" >> $file
 
     log="时间: `date '+%Y-%m-%d %H:%M:%S'` UTC \n主机名: `hostname` \n节点: ${service}\n状态: 快照已完成。"
