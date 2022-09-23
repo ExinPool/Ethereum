@@ -35,5 +35,5 @@ do
 done
 
 log="时间: `date '+%Y-%m-%d %H:%M:%S'` UTC \n主机名: `hostname` \n节点: ${service}\n状态: 快照已完成。"
-echo -e $log >> $log_file
+echo -e $log >> /data/monitor/exinpool/Ethereum/snapshots/$log_file
 curl -X POST -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"'"$log"'"}}' ${lark_webhook_url}
