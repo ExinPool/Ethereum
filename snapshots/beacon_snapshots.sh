@@ -11,7 +11,7 @@
 
 nodes=(`cat nodes.log`)
 
-curdate=`date "+%F-%H-%M"`
+curdate=$(date '+%Y-%m-%d')
 
 cd /data/monitor/exinpool/Ethereum && mkdir -p data/$curdate
 dir="/data/monitor/exinpool/Ethereum/data/$curdate"
@@ -19,7 +19,7 @@ dir="/data/monitor/exinpool/Ethereum/data/$curdate"
 for node in "${nodes[@]}"
 do
     file="$dir/snaptshots-$curdate.log"
-    balance=`curl --silent https://beaconscan.com/main/validator/0x$i | grep "est APR of" | awk '{print $1}'`
-    apr=`curl --silent https://beaconscan.com/main/validator/0x$i | grep "est APR of" | awk -F'(' '{print $2}' | awk -F'%' '{print $1}' | awk '{print $4}'`
+    balance=`curl --silent https://beaconscan.com/main/validator/0x$node | grep "est APR of" | awk '{print $1}'`
+    apr=`curl --silent https://beaconscan.com/main/validator/0x$node | grep "est APR of" | awk -F'(' '{print $2}' | awk -F'%' '{print $1}' | awk '{print $4}'`
     echo "$node $balance $apr" >> $file
 done
