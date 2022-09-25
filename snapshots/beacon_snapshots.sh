@@ -16,6 +16,7 @@ source config.shlib
 service="$(config_get SERVICE)"
 api_key="$(config_get API_KEY)"
 node_num="$(config_get NODE_NUM)"
+sleep_num="$(config_get SLEEP_NUM)"
 log_file="$(config_get LOG_FILE)"
 lark_webhook_url="$(config_get LARK_WEBHOOK_URL)"
 
@@ -37,6 +38,7 @@ do
         balance=`echo "scale=9; $balanceBig/1000000000" | bc`
         echo "$node $balance" >> $file
     fi
+    sleep $sleep_num
 done
 
 curnum=`cat $file | awk '$2 > 32.0 {print $2;}' | wc -l`

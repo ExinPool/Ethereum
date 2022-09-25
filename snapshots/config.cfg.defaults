@@ -1,5 +1,6 @@
 SERVICE=Ethereum
 API_KEY=
 NODE_NUM=
+SLEEP_NUM=
 LOG_FILE=ethereum_snapshots.log
 LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
